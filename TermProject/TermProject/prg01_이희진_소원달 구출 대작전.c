@@ -1,12 +1,8 @@
-#include <stdio.h>
+#include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h>
 
-int main(){
-
-void
+int main() {
 
 }
-
-
