@@ -193,19 +193,25 @@ void boss_random() {
 */
 
 void store() {
-
+	printf("\n");
+	printf("   _      __    __                     __         __  __              __              \n"); Sleep(100);
+	printf("  | | /| / /__ / /______  __ _  ___   / /____    / /_/ /  ___    ___ / /____  _______ \n"); Sleep(100);
+	printf("  | |/ |/ / -_) / __/ _ $/  ' $/ -_) / __/ _ $  / __/ _ $/ -_)  (_-</ __/ _ $/ __/ -_)\n"); Sleep(100);
+	printf("  |__/|__/$__/_/$__/$___/_/_/_/$__/  $__/$___/  $__/_//_/$__/  /___/$__/$___/_/  $__/ \n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	printf("\n");
 	do {
 		printf("\n");
-		printf("         _____ ___ ___ _ _        \n"); Sleep(100);
-		printf("  |---- |     | -_|   | | | -----|\n"); Sleep(100);
-		printf("  |     |_|_|_|___|_|_|___|      |\n"); Sleep(100);
-		printf("  |                              |\n"); Sleep(100);
-		printf("  |     1. 공격력 업그레이드!    |\n"); Sleep(100);
-		printf("  |     2. 체력   업그레이드!    |\n"); Sleep(100);
-		printf("  |     3. 방어력 업그레이드!    |\n"); Sleep(100);
-		printf("  |     4. 돌아가기              |\n"); Sleep(100);
-		printf("  |                              |\n"); Sleep(100);
-		printf("  |------------------------------|\n"); Sleep(100);
+		printf("                        _____ ___ ___ _ _        \n"); Sleep(100);
+		printf("                 |---- |     | -_|   | | | -----|\n"); Sleep(100);
+		printf("                 |     |_|_|_|___|_|_|___|      |\n"); Sleep(100);
+		printf("                 |                              |\n"); Sleep(100);
+		printf("                 |    1. 공격력 업그레이드!     |\n"); Sleep(100);
+		printf("                 |    2. 체력   업그레이드!     |\n"); Sleep(100);
+		printf("                 |    3. 방어력 업그레이드!     |\n"); Sleep(100);
+		printf("                 |    4. 돌아가기               |\n"); Sleep(100);
+		printf("                 |                              |\n"); Sleep(100);
+		printf("                 |------------------------------|\n"); Sleep(100);
 		printf("\n"); Sleep(100);
 		printf("  무엇을 선택하시겠습니까?........");
 		scanf_s("%d", &menu_num);
@@ -230,7 +236,7 @@ void store() {
 		default:
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
 		}
-	} while ((star_hp && boss_hp) > 0);
+	} while (menu_num != 4);
 	
 
 }
@@ -277,46 +283,52 @@ void tutorial() {
 		switch (menu_num) {
 		case 1:
 			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
-			printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			boss_hp = boss_hp - star_attack;
 			tutorial_star_attack();
-			boss_num = rand() % 2 + 1;
-			if (boss_num == 1) {
-				star_hp = star_hp - boss_attack;
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_boss_attack();
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					tutorial_boss_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					tutorial_main();
+				}
 			}
-			else if (boss_num == 2) {
-				boss_hp = boss_hp + (boss_defense / 10);
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_main();
-			}
+			
 			// boss_random();
 			break;
 
 		case 2:
 			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
-			printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			star_hp = star_hp + (star_defense / 10);
 			tutorial_main();
-			boss_num = rand() % 2 + 1;
-			if (boss_num == 1) {
-				star_hp = star_hp - boss_attack;
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_boss_attack();
-			}
-			else if (boss_num == 2) {
-				boss_hp = boss_hp + (boss_defense / 10);
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_main();
+
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					tutorial_boss_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					tutorial_main();
+				}
 			}
 			// boss_random();
 			break;
@@ -343,7 +355,7 @@ void round_1() {
 	boss_attack = 2;
 	boss_defense = 10;
 	star_hp = 10;
-	star_attack = 2;
+	star_attack = 6;
 	star_defense = 10;
 	printf("\n");
 	printf("    ___                        __         __           __      __  __\n"); Sleep(100);
@@ -387,46 +399,54 @@ void round_1() {
 		switch (menu_num) {
 		case 1:
 			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
-			printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			boss_hp = boss_hp - star_attack;
 			round1_star_attack();
-			boss_num = rand() % 2 + 1;
-			if (boss_num == 1) {
-				star_hp = star_hp - boss_attack;
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
-				round1_bose_attack();
+
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round1_bose_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+				}
 			}
-			else if (boss_num == 2) {
-				boss_hp = boss_hp + (boss_defense / 10);
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_main();
+			else if (boss_hp <= 0) {
+				break;
 			}
 			// boss_random();
 			break;
 
 		case 2:
 			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
-			printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			star_hp = star_hp + (star_defense / 10);
-			tutorial_main();
-			boss_num = rand() % 2 + 1;
-			if (boss_num == 1) {
-				star_hp = star_hp - boss_attack;
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
-				round1_bose_attack();
-			}
-			else if (boss_num == 2) {
-				boss_hp = boss_hp + (boss_defense / 10);
-				printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-				printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
-				printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
-				tutorial_main();
+			game_main();
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round1_bose_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+				}
 			}
 			// boss_random();
 			break;
@@ -529,11 +549,11 @@ int main() {
 	printf("\n"); Sleep(100); 
 	printf("  튜토리얼을 진행합니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
-	tutorial();
+	//tutorial();
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	printf("  1ROUND를 진행합니다.\n"); Sleep(100);
 	round_1();
-
+	store(); 
 
 
 	
