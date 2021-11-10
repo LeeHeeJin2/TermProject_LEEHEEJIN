@@ -241,7 +241,12 @@ void store() {
 
 }
 
-
+void mini_game() {
+	// 미니게임 종류는 .. 
+	// 음 ..1. 룰렛처럼 카드 맞추기 느낌 ? 아니면 숫자 야구같은거 ? 
+	//그렇다면 .. 공룡 뛰는거 하고 싶긴 한데 넘 어려울거 같기도 하공 ..
+	// 
+}
 
 
 void tutorial() {
@@ -549,7 +554,7 @@ int main() {
 	printf("\n"); Sleep(100); 
 	printf("  튜토리얼을 진행합니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
-	//tutorial();
+	tutorial();
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	printf("  1ROUND를 진행합니다.\n"); Sleep(100);
 	round_1();
