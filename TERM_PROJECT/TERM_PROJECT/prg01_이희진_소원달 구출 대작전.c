@@ -3,7 +3,7 @@
 #include <time.h>
 #include <windows.h>
 
-int coin = 0;				// 코인 개수
+int coin = 5;				// 코인 개수
 int star_hp = 10;			// 별의 체력 (초기 체력은 10으로 지정)
 int star_attack = 2;		// 별의 공격력 (초기 공격력은 2로 지정)
 int star_defense = 10;		// 별의 방어력 (초기 방어력은 10으로 지정)
@@ -12,6 +12,8 @@ int boss_attack;			// 보스의 공격력
 int boss_defense;			// 보스의 방어력
 int menu_num;				// 별의 메뉴 선택 
 int boss_num;				// 보스의 메뉴 선택
+int cl_fa;
+
 
 
 void tutorial_main() {
@@ -40,7 +42,7 @@ void tutorial_main() {
 	printf("\n"); Sleep(100);
 }
 
-void tutorial_star_attack() {
+void star_attack1() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 	printf("  |                                                                                 ■                           |     \n"); Sleep(100);
 	printf("  |                                                                             ■■■■                         |     \n"); Sleep(100);
@@ -119,7 +121,7 @@ void game_main() {
 
 }
 
-void round1_star_attack() {
+void star_attack2() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 	printf("  |                                                                ■■■■■■                                  |     \n"); Sleep(100);
 	printf("  |                                                    □        ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
@@ -171,6 +173,58 @@ void round1_bose_attack() {
 
 }
 
+void star_attack3() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |                                                          *     ■■■■■■                                  |     \n"); Sleep(100);
+	printf("  |                           *                 *      □        ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                                     □                       ■■■■■■■■               ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                             *                          *       ■■■■■■                 ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                  □                    *       □                                             ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                        *                             *                      ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |            □                □                                           ■■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |                 *                      □         □                      ■■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |                        □                                                   ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |                                  *                                                                           |     \n"); Sleep(100);
+	printf("  |          *     □       *                  □       *                                                        |     \n"); Sleep(100);
+	printf("  |                              □                                                                              |     \n"); Sleep(100);
+	printf("  |             □    *                         *                                                                |     \n"); Sleep(100);
+	printf("  |        ■             □         *                                                                           |     \n"); Sleep(100);
+	printf("  |      ■■■  □                                                                                              |     \n"); Sleep(100);
+	printf("  |        ■          *                                                                                         |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
+	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp, boss_hp); Sleep(100);
+	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
+	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
+
+}
+
+void star_attack4() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |                                    @                     *     ■■■■□■      @       □  *               |     \n"); Sleep(100);
+	printf("  |                           *                 *      □        □■■□■■■■                 ■■■■□■   |     \n"); Sleep(100);
+	printf("  |                     @               □                       ■■■■■□■■     * □      ■■■□■■■■ |     \n"); Sleep(100);
+	printf("  |                             *                          *       ■■□■■■              @  ■□■■■■■□ |     \n"); Sleep(100);
+	printf("  |                  □                    *       □                                             ■■■■□■   |     \n"); Sleep(100);
+	printf("  |                        *                             *     □               ■■□■□■■                   |     \n"); Sleep(100);
+	printf("  |            □                □    @                                 @    ■■■■■■■■□         *       |     \n"); Sleep(100);
+	printf("  |                 *                      □         □                      □■■■□■■■■                 |     \n"); Sleep(100);
+	printf("  |                        □                                *       □         ■□■■■□■     @             |     \n"); Sleep(100);
+	printf("  |                    @             *                                                                           |     \n"); Sleep(100);
+	printf("  |          *     □       *                  □       *                        @                               |     \n"); Sleep(100);
+	printf("  |                              □      @                        □                                             |     \n"); Sleep(100);
+	printf("  |             □    *                         *                                                                |     \n"); Sleep(100);
+	printf("  |        ■      @      □         *                     @                                                     |     \n"); Sleep(100);
+	printf("  |      ■■■  □                                                                                              |     \n"); Sleep(100);
+	printf("  |        ■          *                     @                                                                   |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
+	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp, boss_hp); Sleep(100);
+	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
+	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
+
+}
+
 /*
 void boss_random() {
 	srand(time(NULL));
@@ -202,17 +256,18 @@ void store() {
 	printf("\n");
 	do {
 		printf("\n");
-		printf("                        _____ ___ ___ _ _        \n"); Sleep(100);
-		printf("                 |---- |     | -_|   | | | -----|\n"); Sleep(100);
-		printf("                 |     |_|_|_|___|_|_|___|      |\n"); Sleep(100);
-		printf("                 |                              |\n"); Sleep(100);
-		printf("                 |    1. 공격력 업그레이드!     |\n"); Sleep(100);
-		printf("                 |    2. 체력   업그레이드!     |\n"); Sleep(100);
-		printf("                 |    3. 방어력 업그레이드!     |\n"); Sleep(100);
-		printf("                 |    4. 돌아가기               |\n"); Sleep(100);
-		printf("                 |                              |\n"); Sleep(100);
-		printf("                 |------------------------------|\n"); Sleep(100);
+		printf("                               _____ ___ ___ _ _               \n"); Sleep(100);
+		printf("                 |----------- |     | -_|   | | | ------------|\n"); Sleep(100);
+		printf("                 |            |_|_|_|___|_|_|___|             |\n"); Sleep(100);
+		printf("                 |                                            |\n"); Sleep(100);
+		printf("                 |     1. 공격력 업그레이드!...... coin 5     |\n"); Sleep(100);
+		printf("                 |     2. 체력   업그레이드!...... coin 5     |\n"); Sleep(100);
+		printf("                 |     3. 방어력 업그레이드!...... coin 5     |\n"); Sleep(100);
+		printf("                 |     4. 돌아가기                            |\n"); Sleep(100);
+		printf("                 |                                            |\n"); Sleep(100);
+		printf("                 |--------------------------------------------|\n"); Sleep(100);
 		printf("\n"); Sleep(100);
+		printf("  보유 코인 : %d\n", coin);
 		printf("  무엇을 선택하시겠습니까?........");
 		scanf_s("%d", &menu_num);
 		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
@@ -220,17 +275,24 @@ void store() {
 		switch (menu_num) {
 		case 1:
 			printf("  공격력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
+			coin = coin - 5;
 			star_attack = star_attack + 2;
 			break;
 
 		case 2:
 			printf("  체력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
 			star_hp = star_hp + 5;
+			coin = coin - 5;
 			break;
 
 		case 3:
 			printf("  방어력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
 			star_defense = star_defense + 10;
+			coin = coin - 5;
+			break;
+
+		case 4:
+			printf("  게임으로 돌아갑니다.\n"); Sleep(500); printf("\n");
 			break;
 
 		default:
@@ -290,7 +352,7 @@ void tutorial() {
 			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
 			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			boss_hp = boss_hp - star_attack;
-			tutorial_star_attack();
+			star_attack1();
 			if (boss_hp > 0) {
 				boss_num = rand() % 2 + 1;
 				if (boss_num == 1) {
@@ -308,8 +370,8 @@ void tutorial() {
 					tutorial_main();
 				}
 			}
-			
-			// boss_random();
+			else
+				break;
 			break;
 
 		case 2:
@@ -335,7 +397,6 @@ void tutorial() {
 					tutorial_main();
 				}
 			}
-			// boss_random();
 			break;
 
 		default:
@@ -351,6 +412,7 @@ void tutorial() {
 		printf("  튜토리얼을 FAIL 하였습니다.");
 	}
 	printf("  튜토리얼이 끝났습니다.");
+	printf("  튜토리얼 보상으로 코인 5개가 지급됩니다.");
 	printf("\n");
 }
 
@@ -359,9 +421,6 @@ void round_1() {
 	boss_hp = 10;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
 	boss_attack = 2;
 	boss_defense = 10;
-	star_hp = 10;
-	star_attack = 6;
-	star_defense = 10;
 	printf("\n");
 	printf("    ___                        __         __           __      __  __\n"); Sleep(100);
 	printf("   <  / _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
@@ -377,10 +436,6 @@ void round_1() {
 	printf("  1라운드 먹구름 보스의 공격 스킬은 안개입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  안개 스킬은 별의 시야를 가려 타격을 줍니다.\n"); Sleep(100);
-	printf("\n"); Sleep(100);
-	printf("  전투의 승패 여부와는 관계없이 이용할 수 있습니다.\n"); Sleep(100);
-	printf("\n"); Sleep(100);
-	printf("  상점을 통해서 별의 체력, 공격력, 방어력을 업그레이드 시킬 수 있습니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	// printf("\033[1;33m helloworld \033[0m\n"); // 색상지정방법 메모
@@ -406,7 +461,141 @@ void round_1() {
 			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
 			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
 			boss_hp = boss_hp - star_attack;
-			round1_star_attack();
+			star_attack1();
+
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round1_bose_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+				}
+			}
+			else
+				break;
+			break;
+
+		case 2:
+			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+			star_hp = star_hp + (star_defense / 10);
+			game_main();
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp = star_hp - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round1_bose_attack();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+				}
+			}
+			break;
+
+		default:
+			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
+		}
+	} while ((star_hp && boss_hp) > 0);
+
+
+	if (star_hp > boss_hp) {
+		printf("  1ROUND를 CLEAR 하였습니다.");
+		cl_fa = 1;
+		coin = coin + 5;
+		printf("\n");
+		printf("                               __            \n"); Sleep(100);
+		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
+		printf("  /___/                                      \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	else if (boss_hp > star_hp) {
+		printf("  1ROUND를 FAIL 하였습니다.");
+		cl_fa = 0;
+		printf("\n");
+		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
+		printf("  /___/                                     \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	printf("  1round가 끝났습니다.");
+	printf("\n");
+}
+
+void round_2() {
+	boss_hp = 15;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
+	boss_attack = 4;
+	boss_defense = 20;
+	printf("\n");
+	printf("     ___                          __         __           __      __  __\n"); Sleep(100);
+	printf("    |_  |  _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
+	printf("   / __/  / __/ _ $/ // / _ $/ _  /    (_-</ __/ _ `/ __/ __/   /_/ /_/ \n"); Sleep(100);
+	printf("  /____/ /_/  $___/$_,_/_//_/$_,_/    /___/$__/$_,_/_/  $__/   /_/ /_/  \n"); Sleep(100);
+	printf("                                                               (_) (_)   \n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	printf("  --- 2 ROUND ---\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  먹구름 보스가 나타났습니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  2라운드 먹구름 보스의 공격 스킬은 바람입니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  바람 스킬은 별의 시야를 가려 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	// printf("\033[1;33m helloworld \033[0m\n"); // 색상지정방법 메모
+
+	game_main();
+	do {
+		printf("\n");
+		printf("         _____ ___ ___ _ _        \n"); Sleep(100);
+		printf("  |---- |     | -_|   | | | -----|\n"); Sleep(100);
+		printf("  |     |_|_|_|___|_|_|___|      |\n"); Sleep(100);
+		printf("  |                              |\n"); Sleep(100);
+		printf("  |     1. boss를 공격한다.      |\n"); Sleep(100);
+		printf("  |     2. 체력을 회복한다.      |\n"); Sleep(100);
+		printf("  |                              |\n"); Sleep(100);
+		printf("  |------------------------------|\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  무엇을 선택하시겠습니까?........");
+		scanf_s("%d", &menu_num);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
+
+		switch (menu_num) {
+		case 1:
+			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+			boss_hp = boss_hp - star_attack;
+			if (star_attack == 2) {
+				star_attack1();
+			}
+			else if (star_attack == 4) {
+				star_attack2();
+			}
+			else if (star_attack == 6) {
+				star_attack3();
+			}
+			else if (star_attack == 8) {
+				star_attack4();
+			}
 
 			if (boss_hp > 0) {
 				boss_num = rand() % 2 + 1;
@@ -464,9 +653,18 @@ void round_1() {
 
 	if (star_hp > boss_hp) {
 		printf("  1ROUND를 CLEAR 하였습니다.");
+		cl_fa = 1;
+		printf("\n");
+		printf("                               __            \n"); Sleep(100);
+		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
+		printf("  /___/                                      \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 	}
 	else if (boss_hp > star_hp) {
 		printf("  1ROUND를 FAIL 하였습니다.");
+		cl_fa = 0;
 		printf("\n");
 		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
 		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
@@ -476,18 +674,11 @@ void round_1() {
 	}
 	printf("  1round가 끝났습니다.");
 	printf("\n");
-	printf("                               __            \n"); Sleep(100);
-	printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-	printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-	printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-	printf("  /___/                                      \n"); Sleep(100);
-	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	printf("\n");
 }
-
 
 int main() {
 	char yn;
+	srand((unsigned)time(NULL));
 	printf("\n");
 	printf("\n");
 	printf("\n");
@@ -552,14 +743,27 @@ int main() {
 	
 	printf("  게임의 이해를 돕는 튜토리얼이 준비되어 있습니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); 
-	printf("  튜토리얼을 진행합니다.\n"); Sleep(100);
+	printf("  튜토리얼 보상은 코인 5개 입니다. 튜토리얼을 진행하시겠습니까?  ( y/n )........... "); 
+	scanf_s(" %c", &yn);
 	printf("\n"); Sleep(100);
-	tutorial();
-	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-	printf("  1ROUND를 진행합니다.\n"); Sleep(100);
-	round_1();
+
+	if (yn == 'y') {
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+		printf("  튜토리얼을 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+		tutorial();
+	}
+	else
+		printf("  1ROUND를 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_1();
+
 	store(); 
 
-
+	if (cl_fa == 0) {
+		round_1();
+	}
+	else
+		round_2();
 	
 }
