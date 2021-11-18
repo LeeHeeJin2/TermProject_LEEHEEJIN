@@ -17,7 +17,7 @@ int boss_attack;			// 보스의 공격력
 int boss_defense;			// 보스의 방어력
 int menu_num;				// 별의 메뉴 선택 
 int boss_num;				// 보스의 메뉴 선택
-int cl_fa;
+int cl_fa= 0;
 
 
 
@@ -121,27 +121,6 @@ void game_main() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
 
-void star_attack1() {
-	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
-	printf("  |                                                                ■■■■■■                                  |     \n"); Sleep(100);
-	printf("  |                                                    □        ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
-	printf("  |                                     □                       ■■■■■■■■               ■■■■■■■■ |     \n"); Sleep(100);
-	printf("  |                                                                ■■■■■■                 ■■■■■■■■ |     \n"); Sleep(100);
-	printf("  |                  □                            □                                             ■■■■■■   |     \n"); Sleep(100);
-	printf("  |                                                                             ■■■■■■■                   |     \n"); Sleep(100);
-	printf("  |            □                □                                           ■■■■■■■■■                 |     \n"); Sleep(100);
-	printf("  |                                        □         □                      ■■■■■■■■■                 |     \n"); Sleep(100);
-	printf("  |                        □                                                   ■■■■■■■                   |     \n"); Sleep(100);
-	printf("  |                                                                                                              |     \n"); Sleep(100);
-	printf("  |                □                          □                                                                |     \n"); Sleep(100);
-	printf("  |                              □                                                                              |     \n"); Sleep(100);
-	printf("  |             □                                                                                               |     \n"); Sleep(100);
-	printf("  |        ■             □                                                                                     |     \n"); Sleep(100);
-	printf("  |      ■■■  □                                                                                              |     \n"); Sleep(100);
-	printf("  |        ■                                                                                                    |     \n"); Sleep(100);
-	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
-}
-
 void round1_bose_attack() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 	printf("  |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@■■■■■■@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|     \n"); Sleep(100);
@@ -184,6 +163,69 @@ void round2_bose_attack() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
 
+void round3_bose_attack() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |                                                                ■■■■■■                                  |     \n"); Sleep(100);
+	printf("  |               /                                 /            ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
+	printf("  |              /                   /             /             ■■■■■■■■               ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |             /                   /             /                ■■■■■■                 ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                                /             /                                                ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                  /                                  /               /      ■■■■■■■                    |     \n"); Sleep(100);
+	printf("  |                 /                      /           /               /     ■■■■■■■■■                  |     \n"); Sleep(100);
+	printf("  |                /                      /           /               /      ■■■■■■■■■       /          |     \n"); Sleep(100);
+	printf("  |               /          /           /                /          /         ■■■■■■■        /           |     \n"); Sleep(100);
+	printf("  |                         /           /                /                                          /        /   |     \n"); Sleep(100);
+	printf("  |                        /                            /                         /                /        /    |     \n"); Sleep(100);
+	printf("  |                       /                 /          /            /            /          /              /     |     \n"); Sleep(100);
+	printf("  |                /             /         /                       /            /          /                     |     \n"); Sleep(100);
+	printf("  |        ■     /             /         /                       /            /          /        /             |     \n"); Sleep(100);
+	printf("  |      ■■■                /         /                                                        /              |     \n"); Sleep(100);
+	printf("  |        ■                 /                                                                  /               |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
+void round4_bose_attack() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |     /                  /                              @@@@@     ■■■■■■                                 |     \n"); Sleep(100);
+	printf("  |    /                  /                 /          @@@@       ■■■■■■■■                ■■■■■■   |     \n"); Sleep(100);
+	printf("  |   /     /            /  @@@@@@         /        @@@@          ■■■■■■■■              ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |  /     /              @@      @@      /      @@@@               ■■■■■■                ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |       /       /      @@         @@         @@@                /                               ■■■■■■   |     \n"); Sleep(100);
+	printf("  |              /      @@           @@      @@@                 /               ■■■■■■■                  |     \n"); Sleep(100);
+	printf("  |             /       @@  @@@     @@     @@@                  /              ■■■■■■■■■           /    |     \n"); Sleep(100);
+	printf("  |      /               @@    @@@@@    @@@                                    ■■■■■■■■■          /     |     \n"); Sleep(100);
+	printf("  |     /                  @@        @@@             @@@@@@            @@@       ■■■■■■■  /        /      |     \n"); Sleep(100);
+	printf("  |    /                     @@@@@@@@              @       @         @@@                        /                |     \n"); Sleep(100);
+	printf("  |                 /                             @         @      @@@           /             /              /  |     \n"); Sleep(100);
+	printf("  |                /           /             /    @   @@  @@    @@@             /                     /      /   |     \n"); Sleep(100);
+	printf("  |               /           /             /      @     @@    @@@      /      /         /           /      /    |     \n"); Sleep(100);
+	printf("  |        ■    /           /     /       /        @        @@@       /                /           /            |     \n"); Sleep(100);
+	printf("  |      ■■■        /          /       /          @@@@@@@@@        /                /           /             |     \n"); Sleep(100);
+	printf("  |        ■         /          /                                   /                            /              |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
+void star_attack1() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |                                                                ■■■■■■                                  |     \n"); Sleep(100);
+	printf("  |                                                    □        ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                                     □                       ■■■■■■■■               ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                                                                ■■■■■■                 ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                  □                            □                                             ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                                                                             ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |            □                □                                           ■■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |                                        □         □                      ■■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |                        □                                                   ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |                                                                                                              |     \n"); Sleep(100);
+	printf("  |                □                          □                                                                |     \n"); Sleep(100);
+	printf("  |                              □                                                                              |     \n"); Sleep(100);
+	printf("  |             □                                                                                               |     \n"); Sleep(100);
+	printf("  |        ■             □                                                                                     |     \n"); Sleep(100);
+	printf("  |      ■■■  □                                                                                              |     \n"); Sleep(100);
+	printf("  |        ■                                                                                                    |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
 void star_attack2() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 	printf("  |                                                          *     ■■■■■■                                  |     \n"); Sleep(100);
@@ -207,24 +249,67 @@ void star_attack2() {
 
 void star_attack3() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
-	printf("  |                                    @                     *     ■■■■□■      @       □  *               |     \n"); Sleep(100);
-	printf("  |                           *                 *      □        □■■□■■■■                 ■■■■□■   |     \n"); Sleep(100);
-	printf("  |                     @               □                       ■■■■■□■■     * □      ■■■□■■■■ |     \n"); Sleep(100);
-	printf("  |                             *                          *       ■■□■■■              @  ■□■■■■■□ |     \n"); Sleep(100);
-	printf("  |                  □                    *       □                                             ■■■■□■   |     \n"); Sleep(100);
-	printf("  |                        *                             *     □               ■■□■□■■                   |     \n"); Sleep(100);
-	printf("  |            □                □    @                                 @    ■■■■■■■■□         *       |     \n"); Sleep(100);
-	printf("  |                 *                      □         □                      □■■■□■■■■                 |     \n"); Sleep(100);
-	printf("  |                        □                                *       □         ■□■■■□■     @             |     \n"); Sleep(100);
-	printf("  |                    @             *                                                                           |     \n"); Sleep(100);
+	printf("  |                                       ~                   *    ■■■■■■     *      ~                     |     \n"); Sleep(100);
+	printf("  |                           *                 *      □        ■■■~~■■■■                 ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                     ~                □                      ■■■■■■■■      ~     □ ■■■■~~■■■ |     \n"); Sleep(100);
+	printf("  |                             *                          *       ■■■■■■   □            ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |                  □                    *       □                                     *       ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                        *                             *     ~         *      ■■■■■~~■                   |     \n"); Sleep(100);
+	printf("  |            □                □    ~                           ~          ■■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |                 *                      □         □       ~              ■■■■~~■■■■                 |     \n"); Sleep(100);
+	printf("  |       ~                 □                  ~                       □      ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |                                  *                            *                                              |     \n"); Sleep(100);
+	printf("  |          *     □       *                  □       *                                                        |     \n"); Sleep(100);
+	printf("  |                              □       ~                                                                      |     \n"); Sleep(100);
+	printf("  |             □    *                         *     ~       □                                                 |     \n"); Sleep(100);
+	printf("  |        ■             □         *     □                                                                    |     \n"); Sleep(100);
+	printf("  |      ■■■  □                                 □                                                           |     \n"); Sleep(100);
+	printf("  |        ■          *                  ~                                                                      |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
+void star_attack4() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |                       ~            @                     *     ■■■■□■      @       □  *               |     \n"); Sleep(100);
+	printf("  |                           *                 *      □        ■■■■■■■■                 ■■■■□■   |     \n"); Sleep(100);
+	printf("  |                     @               □                       ■■■■■■■■     * □      ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |         ~                   *                          *       ■■□■■■              @  ■■■■■■■□ |     \n"); Sleep(100);
+	printf("  |                  □                    *       □                                             ■■■■■■   |     \n"); Sleep(100);
+	printf("  |                        *                             *     □               ■■■■■■■                   |     \n"); Sleep(100);
+	printf("  |            □                □    @         ~                       @    ■■■■■■■■□         *       |     \n"); Sleep(100);
+	printf("  |                 *                      □         □                      □■■■■■■■■                 |     \n"); Sleep(100);
+	printf("  |             ~          □                                *       □         ■■■■■■■     @             |     \n"); Sleep(100);
+	printf("  |                    @             *                                  ~                                        |     \n"); Sleep(100);
 	printf("  |          *     □       *                  □       *                        @                               |     \n"); Sleep(100);
 	printf("  |                              □      @                        □                                             |     \n"); Sleep(100);
-	printf("  |             □    *                         *                                                                |     \n"); Sleep(100);
+	printf("  |             □    *                         *     ~                  ~                                       |     \n"); Sleep(100);
 	printf("  |        ■      @      □         *                     @                                                     |     \n"); Sleep(100);
-	printf("  |      ■■■  □                                                                                              |     \n"); Sleep(100);
+	printf("  |      ■■■  □                                               *                                              |     \n"); Sleep(100);
 	printf("  |        ■          *                     @                                                                   |     \n"); Sleep(100);
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
+
+void star_attack5() {
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |  +       +          `    ~            @                  *     ■■■■□■      @       □  *               |     \n"); Sleep(100);
+	printf("  |               +           *                 *      □        □■■□■■■■                 ■■■■□■   |     \n"); Sleep(100);
+	printf("  |     +    `            @               □         +           ■■■■■□■■     * □      ■■■□■■■■ |     \n"); Sleep(100);
+	printf("  |         ~       +            *                         *       ■■□■■■              @  ■□■■■■■□ |     \n"); Sleep(100);
+	printf("  |              `    □               +     *       □                                           ■■■■□■   |     \n"); Sleep(100);
+	printf("  |      +                  *                     `     *     □        `       ■■□■□■■                   |     \n"); Sleep(100);
+	printf("  |   `         □               □    @         ~                      @     ■■■■■■■■□         *       |     \n"); Sleep(100);
+	printf("  |                 *    `                  □       □          `            □■■■□■■■■                 |     \n"); Sleep(100);
+	printf("  |             ~          □                 `              *       □         ■□■■■□■     @             |     \n"); Sleep(100);
+	printf("  |    +                @        `     *         +                      ~                                        |     \n"); Sleep(100);
+	printf("  |          *     □       *               □      *     `                   @      +     `            +        |     \n"); Sleep(100);
+	printf("  |    +    ■                      □      @                    □        `                                     |     \n"); Sleep(100);
+	printf("  |        ■■    □    *                       *     ~               ~                         +      `        |     \n"); Sleep(100);
+	printf("  |     ■■■■■      @      □         *              @                   +          `                        |     \n"); Sleep(100);
+	printf("  |        ■■  □                                            *                  +                `     +       |     \n"); Sleep(100);
+	printf("  |         ■          *             `        @      `               +                      +                   |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
 void round1_score() {
 	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
 	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp1, boss_hp); Sleep(100);
@@ -237,8 +322,24 @@ void round2_score() {
 	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
 	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
 }
-
-
+void round3_score() {
+	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
+	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp3, boss_hp); Sleep(100);
+	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
+	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
+}
+void round4_score() {
+	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
+	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp4, boss_hp); Sleep(100);
+	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
+	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
+}
+void round5_score() {
+	printf("   > STAR <                                                                                        > BOSS <            \n"); Sleep(100);
+	printf("   체력   :  %d                                                                                    체력   :  %d        \n", star_hp5, boss_hp); Sleep(100);
+	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
+	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
+}
 
 /*
 void boss_random() {
@@ -570,6 +671,7 @@ void round_2() {
 	boss_attack = 4;
 	boss_defense = 20;
 	star_hp2 = star_hp;
+	cl_fa = 0;
 	printf("\n");
 	printf("     ___                          __         __           __      __  __\n"); Sleep(100);
 	printf("    |_  |  _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
@@ -620,12 +722,18 @@ void round_2() {
 				round2_score();
 			}
 			else if (star_attack == 6) {
-				star_attack2();
-				round2_score();
-			}
-			else
 				star_attack3();
 				round2_score();
+			}
+			else if (star_attack == 8) {
+				star_attack4();
+				round2_score();
+			}
+			else if (star_attack >= 10) {
+				star_attack5();
+				round2_score();
+			}
+
 
 			if (boss_hp > 0) {
 				boss_num = rand() % 2 + 1;
@@ -648,7 +756,7 @@ void round_2() {
 			}
 			else
 				break;
-		break;
+			break;
 
 		case 2:
 			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
@@ -677,7 +785,7 @@ void round_2() {
 			}
 			else
 				break;
-		break;
+			break;
 
 		default:
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
@@ -712,6 +820,156 @@ void round_2() {
 }
 
 
+void round_3() {
+	boss_hp = 20;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
+	boss_attack = 6;
+	boss_defense = 30;
+	star_hp3 = star_hp;
+	cl_fa = 0;
+	printf("\n");
+	printf("     ___                          __         __           __      __  __\n"); Sleep(100);
+	printf("    |_  |  _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
+	printf("   / __/  / __/ _ $/ // / _ $/ _  /    (_-</ __/ _ `/ __/ __/   /_/ /_/ \n"); Sleep(100);
+	printf("  /____/ /_/  $___/$_,_/_//_/$_,_/    /___/$__/$_,_/_/  $__/   /_/ /_/  \n"); Sleep(100);
+	printf("                                                               (_) (_)   \n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	printf("  --- 3 ROUND ---\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  먹구름 보스가 나타났습니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  3라운드 먹구름 보스의 공격 스킬은 비입니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  비 스킬은 별의 움직임을 방해해 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	// printf("\033[1;33m helloworld \033[0m\n"); // 색상지정방법 메모
+
+	game_main();
+	round3_score();
+	do {
+		printf("\n");
+		printf("         _____ ___ ___ _ _        \n"); Sleep(100);
+		printf("  |---- |     | -_|   | | | -----|\n"); Sleep(100);
+		printf("  |     |_|_|_|___|_|_|___|      |\n"); Sleep(100);
+		printf("  |                              |\n"); Sleep(100);
+		printf("  |     1. boss를 공격한다.      |\n"); Sleep(100);
+		printf("  |     2. 체력을 회복한다.      |\n"); Sleep(100);
+		printf("  |                              |\n"); Sleep(100);
+		printf("  |------------------------------|\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  무엇을 선택하시겠습니까?........");
+		scanf_s("%d", &menu_num);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
+
+		switch (menu_num) {
+		case 1:
+			printf("  공격을 선택하였습니다.\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+			boss_hp = boss_hp - star_attack;
+			if (star_attack == 2) {
+				star_attack1();
+				round3_score();
+			}
+			else if (star_attack == 4) {
+				star_attack2();
+				round3_score();
+			}
+			else if (star_attack == 6) {
+				star_attack3();
+				round3_score();
+			}
+			else if (star_attack == 8) {
+				star_attack4();
+				round3_score();
+			}
+			else
+				star_attack5();
+				round3_score();
+
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp3 = star_hp3 - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round3_bose_attack();
+					round3_score();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+					round3_score();
+				}
+			}
+			else
+				break;
+			break;
+
+		case 2:
+			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
+			printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+			star_hp3 = star_hp3 + (star_defense / 10);
+			game_main();
+			round3_score();
+			if (boss_hp > 0) {
+				boss_num = rand() % 2 + 1;
+				if (boss_num == 1) {
+					star_hp3 = star_hp3 - boss_attack;
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~공격중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					round3_bose_attack();
+					round3_score();
+				}
+				else if (boss_num == 2) {
+					boss_hp = boss_hp + (boss_defense / 10);
+					printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+					printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
+					printf("  ~~~~~~~~~~~~~~~회복중~~~~~~~~~~~~~~~\n"); Sleep(500); printf("\n");
+					game_main();
+					round3_score();
+				}
+			}
+			else
+				break;
+			break;
+
+		default:
+			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
+		}
+	} while ((star_hp3 && boss_hp) > 0);
+
+
+	if (star_hp3 > boss_hp) {
+		printf("  3ROUND를 CLEAR 하였습니다.");
+		cl_fa = 1;
+		coin = coin + 5;
+		printf("\n");
+		printf("                               __            \n"); Sleep(100);
+		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
+		printf("  /___/                                      \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	else if (boss_hp > star_hp3) {
+		printf("  3ROUND를 FAIL 하였습니다.");
+		cl_fa = 0;
+		printf("\n");
+		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
+		printf("  /___/                                     \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	printf("  3round가 끝났습니다.");
+	printf("\n");
+}
 
 
 
@@ -798,13 +1056,41 @@ int main() {
 		printf("  1ROUND를 진행합니다.\n"); Sleep(100);
 		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 		round_1();
-
 	store(); 
 	
 	while (1) {
 		if (cl_fa == 1) break;
+		printf("  1ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 		round_1();
 		store();
 	}
+
+
+	printf("  2ROUND를 진행합니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	round_2();
+	store();
+
+	while (1) {
+		if (cl_fa == 1) break;
+		printf("  2ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_2();
+		store();
+	}
+
+	printf("  3ROUND를 진행합니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+	round_3();
+	store();
+
+	while (1) {
+		if (cl_fa == 1) break;
+		printf("  3ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_3();
+		store();
+	}
+
 }
