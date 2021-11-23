@@ -359,9 +359,9 @@ void star_attack5() {
 	printf("  |    +                @        `     *         +                      ~                                        |     \n"); Sleep(100);
 	printf("  |          *     □       *               □      *     `                   @      +     `            +        |     \n"); Sleep(100);
 	printf("  |    +    ■                      □      @                    □        `                                     |     \n"); Sleep(100);
-	printf("  |        ■■    □    *                       *     ~               ~                         +      `        |     \n"); Sleep(100);
+	printf("  |       ■■■    □    *                       *     ~               ~                         +      `       |     \n"); Sleep(100);
 	printf("  |     ■■■■■      @      □         *              @                   +          `                        |     \n"); Sleep(100);
-	printf("  |        ■■  □                                            *                  +                `     +       |     \n"); Sleep(100);
+	printf("  |       ■■■  □                                            *                  +                `     +      |     \n"); Sleep(100);
 	printf("  |         ■          *             `        @      `               +                      +                   |     \n"); Sleep(100);
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
@@ -396,27 +396,6 @@ void round5_score() {
 	printf("   공격력 :  %d                                                                                     공격력 :  %d        \n", star_attack, boss_attack); Sleep(100);
 	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
 }
-
-/*
-void boss_random() {
-	srand(time(NULL));
-	boss_num = rand() % 2 + 1;
-	if (boss_num == 1) {
-		star_hp = star_hp - boss_attack;
-		printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-		printf("  boss가 공격을 합니다 \n"); Sleep(500); printf("\n");
-		printf("  ~~~~~공격중~~~~~공격중~~~~~공격중~~~~~\n"); Sleep(500); printf("\n");
-		tutorial_boss_attact();
-	}
-	else if (boss_num == 2) {
-		boss_hp = boss_hp + (boss_defense / 10);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-		printf("  boss가 회복을 합니다 \n"); Sleep(500); printf("\n");
-		printf("  ~~~~~회복중~~~~~회복중~~~~~회복중~~~~~\n"); Sleep(500); printf("\n");
-		tutorial_main();
-	}
-}
-*/
 
 void store() {
 	printf("\n");
@@ -606,6 +585,7 @@ void round_1() {
 	boss_attack = 2;
 	boss_defense = 10;
 	star_hp1 = star_hp;
+	cl_fa = 0;
 	printf("\n");
 	printf("    ___                        __         __           __      __  __\n"); Sleep(100);
 	printf("   <  / _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
@@ -673,7 +653,7 @@ void round_1() {
 			}
 			else
 				break;
-		break;
+			break;
 
 		case 2:
 			printf("  회복을 선택하였습니다.\n"); Sleep(500); printf("\n");
@@ -709,12 +689,12 @@ void round_1() {
 			}
 			else
 				break;
-		break;
+			break;
 
 		default:
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
 		}
-	} while ((star_hp0 > 0) && (boss_hp > 0));
+	} while ((star_hp1 > 0) && (boss_hp > 0));
 
 
 	if (star_hp1 > boss_hp) {
@@ -877,7 +857,7 @@ void round_2() {
 		default:
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
 		}
-	} while ((star_hp > 0) && (boss_hp > 0));
+	} while ((star_hp2 > 0) && (boss_hp > 0));
 
 
 	if (star_hp2 > boss_hp) {
