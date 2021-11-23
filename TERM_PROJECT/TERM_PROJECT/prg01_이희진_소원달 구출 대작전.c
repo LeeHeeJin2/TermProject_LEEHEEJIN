@@ -236,6 +236,32 @@ void round4_bose_attack() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
 
+void round5_bose_attack() {
+	printf("  ...........................................|------------------------|...........................................\n"); Sleep(500);
+	printf("  ...........................................|     공          중     |...........................................\n"); Sleep(500);
+	printf("  ...........................................|           격           |...........................................\n"); Sleep(500);
+	printf("  ...........................................|------------------------|...........................................\n"); Sleep(500);
+	printf("\n"); Sleep(500); printf("\n");
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+	printf("  |     /                        /         #          /            ■■■■■■                                  |     \n"); Sleep(100);
+	printf("  |    /           #            /        ##          /           ■■■■■■■■                 ■■■■■■   |     \n"); Sleep(100);
+	printf("  |   /           ##           /        ##          /            ■■■■■■■■               ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |       /      ##           /       ###     /         #          ■■■■■■                 ■■■■■■■■ |     \n"); Sleep(100);
+	printf("  |      /      ###          /       ###     /         ##       /       #                         ■■■■■■   |     \n"); Sleep(100);
+	printf("  |     /      ########            ####     /         ##       /       ##`       ■■■■■■■              /   |     \n"); Sleep(100);
+	printf("  |               ###            #####               ###      /       ###      ■■■■■■■■■       #   /    |     \n"); Sleep(100);
+	printf("  |          /    ##            ##########          ###      /       ########  ■■■■■■■■■      ##  /     |     \n"); Sleep(100);
+	printf("  |         /    ##                 #####          ####     `            ###     ■■■■■■■       ##  /      |     \n"); Sleep(100);
+	printf("  |        /     #                 ####           ########        /      ##           #              ###         |     \n"); Sleep(100);
+	printf("  |                   /           ###                ####        /       #           ##         /   ########     |     \n"); Sleep(100);
+	printf("  |         ■       /           ###       /         ###        /                   ###        /        ###      |     \n"); Sleep(100);
+	printf("  |       ■■■    /           ##        /         ###        /        /          #######    /         ##    /  |     \n"); Sleep(100);
+	printf("  |     ■■■■■             ##        /          ##    /            /              ###         /    ##    /   |     \n"); Sleep(100);
+	printf("  |       ■■■               #        /          ##    /            /       /       ##         /     #    /    |     \n"); Sleep(100);
+	printf("  |         ■                         /           #    /                    /        #         /                |     \n"); Sleep(100);
+	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
+}
+
 void star_attack1() {
 	printf("  ...........................................|------------------------|...........................................\n"); Sleep(500);
 	printf("  ...........................................|     공          중     |...........................................\n"); Sleep(500);
@@ -842,9 +868,9 @@ void round_4() {
 	printf("\n"); Sleep(100);
 	printf("  먹구름 보스가 나타났습니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
-	printf("  4라운드 먹구름 보스의 공격 스킬은 비입니다.\n"); Sleep(100);
+	printf("  4라운드 먹구름 보스의 공격 스킬은 강풍, 폭우입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
-	printf("  비 스킬은 비를 내려 별을 젖게 만들어서 타격을 줍니다.\n"); Sleep(100);
+	printf("  강풍, 폭우 스킬은 강풍과 폭우가 동시에 발생해 태풍을 만들어 별에게 타격을 줍니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp4, round4_bose_attack);
@@ -875,10 +901,61 @@ void round_4() {
 	printf("\n");
 }
 
+void round_5() {
+	star_hp5 = star_hp;
+	boss_hp = 30;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
+	boss_attack = 10;
+	boss_defense = 50;
+	cl_fa = 0;
+	printf("\n");
+	printf("     ____                         __         __           __      __  __\n"); Sleep(100);
+	printf("    / __/  _______  __ _____  ___/ /    ___ / /____ _____/ /_    / / / /\n"); Sleep(100);
+	printf("   /__ $  / __/ _ $/ // / _ $/ _  /    (_-</ __/ _ `/ __/ __/   /_/ /_/ \n"); Sleep(100);
+	printf("  /____/ /_/  $___/$_,_/_//_/$_,_/    /___/$__/$_,_/_/  $__/   /_/ /_/  \n"); Sleep(100);
+	printf("                                                              (_) (_)   \n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	printf("  --- 5 ROUND ---\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  먹구름 보스가 나타났습니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  5라운드 먹구름 보스의 공격 스킬은 천둥, 번개 입니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  천둥, 번개 스킬은 비를 내려 별을 젖게 만들어서 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+
+	round(star_hp5, round5_bose_attack);
+
+	if (star_hp5 > boss_hp) {
+		printf("  5ROUND를 CLEAR 하였습니다.");
+		cl_fa = 1;
+		coin = coin + 5;
+		printf("\n");
+		printf("                               __            \n"); Sleep(100);
+		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
+		printf("  /___/                                      \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	else if (boss_hp > star_hp5) {
+		printf("  5ROUND를 FAIL 하였습니다.");
+		cl_fa = 0;
+		printf("\n");
+		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
+		printf("  /___/                                     \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	printf("  5round가 끝났습니다.");
+	printf("\n");
+}
 
 int main() {
 	char yn;
 	srand((unsigned)time(NULL));
+	
 	printf("\n");
 	printf("\n");
 	printf("\n");
@@ -967,7 +1044,6 @@ int main() {
 		store();
 	}
 
-
 	printf("  2ROUND를 진행합니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	round_2();
@@ -981,6 +1057,42 @@ int main() {
 		store();
 	}
 	
-	
+	printf("  3ROUND를 진행합니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+	round_3();
+	store();
 
+	while (1) {
+		if (cl_fa == 1) break;
+		printf("  3ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_4();
+		store();
+	}
+	
+	printf("  4ROUND를 진행합니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+	round_2();
+	store();
+
+	while (1) {
+		if (cl_fa == 1) break;
+		printf("  4ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_4();
+		store();
+	}
+
+	printf("  5ROUND를 진행합니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+	round_5();
+	store();
+
+	while (1) {
+		if (cl_fa == 1) break;
+		printf("  5ROUND를 다시 진행합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
+		round_5();
+		store();
+	}
 }
