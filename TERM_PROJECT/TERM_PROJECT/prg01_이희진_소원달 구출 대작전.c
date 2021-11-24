@@ -20,8 +20,6 @@ int menu_num;				// 별의 메뉴 선택
 int boss_num;				// 보스의 메뉴 선택
 int cl_fa= 0;
 
-
-
 void tutorial_main() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 	printf("  |                                                                                 ■                           |     \n"); Sleep(100);
@@ -109,7 +107,6 @@ void tutorial_boss_attack() {
 	printf("   방어력 :  %d                                                                                    방어력 :  %d        \n", star_defense, boss_defense); Sleep(100);
 	printf("\n"); Sleep(100);
 }
-
 
 void game_main() {
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
@@ -428,21 +425,36 @@ void store() {
 
 		switch (menu_num) {
 		case 1:
-			printf("  공격력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
-			coin = coin - 5;
-			star_attack = star_attack + 2;
+			if (coin >= 5) {
+				printf("  공격력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
+				coin = coin - 5;
+				star_attack = star_attack + 2;
+			}
+			else if (coin < 5) {
+				printf("  가지고 있는 코인이 부족합니다.\n"); Sleep(500); printf("\n");
+			}
 			break;
 
 		case 2:
-			printf("  체력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
-			star_hp = star_hp + 5;
-			coin = coin - 5;
+			if (coin >= 5) {
+				printf("  체력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
+				star_hp = star_hp + 5;
+				coin = coin - 5;
+			}
+			else if (coin < 5) {
+				printf("  가지고 있는 코인이 부족합니다.\n"); Sleep(500); printf("\n");
+			}
 			break;
 
 		case 3:
-			printf("  방어력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
-			star_defense = star_defense + 10;
-			coin = coin - 5;
+			if (coin >= 5) {
+				printf("  방어력 업그레이드를 선택하였습니다.\n"); Sleep(500); printf("\n");
+				star_defense = star_defense + 10;
+				coin = coin - 5;
+			}
+			else if (coin < 5) {
+				printf("  가지고 있는 코인이 부족합니다.\n"); Sleep(500); printf("\n");
+			}
 			break;
 
 		case 4:
@@ -453,8 +465,6 @@ void store() {
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
 		}
 	} while (menu_num != 4);
-	
-
 }
 
 void round(int hp, int b_a()) {
@@ -563,15 +573,38 @@ void round(int hp, int b_a()) {
 			}
 			else
 				break;
+			
 			break;
-
 		default:
 			printf("  잘못 입력하였습니다. 다시 입력해주세요.\n");
 		}
 	} while ((hp > 0) && (boss_hp > 0));
+
+	if (hp > boss_hp) {
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
+		printf("  ROUND를 CLEAR 하였습니다.");
+		cl_fa = 1;
+		coin = coin + 5;
+		printf("\n");
+		printf("                               __            \n"); Sleep(100);
+		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
+		printf("  /___/                                      \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
+	else if (hp < boss_hp) {
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
+		printf("  ROUND를 FAIL 하였습니다.");
+		cl_fa = 0;
+		printf("\n");
+		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
+		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
+		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
+		printf("  /___/                                     \n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
 }
-
-
 
 void mini_game() {
 	// 미니게임 종류는 .. 
@@ -579,7 +612,6 @@ void mini_game() {
 	//그렇다면 .. 공룡 뛰는거 하고 싶긴 한데 넘 어려울거 같기도 하공 ..
 	// 
 }
-
 
 void tutorial() {
 	star_hp0 = star_hp;
@@ -592,15 +624,12 @@ void tutorial() {
 	printf("  튜토리얼의 boss는 공룡입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  메뉴를 보고 공격을 할 수 있습니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  별과 boss는 서로 번갈아가면서 공격 또는 회복을 할 수 있습니다.\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  튜토리얼 boss의 체력은 6 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  튜토리얼 boss의 공격력은 1 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  튜토리얼 boss의 방어력은 10 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
+	printf("  [튜토리얼 boss] 체력 : %d  공격력 : %d  방어력 : %d \n",boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
+	printf("  [      별     ] 체력 : 10  공격력 : 2  방어력 : 10 \n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  별의 기본 체력은 10 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  별의 기본 공격력은 2 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  별의 기본 방어력은 10 입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-
-	// printf("\033[1;33m helloworld \033[0m\n"); // 색상지정방법 메모
 
 	tutorial_main();
 	do {
@@ -717,33 +746,11 @@ void round_1() {
 	printf("  1라운드 먹구름 보스의 공격 스킬은 안개입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  안개 스킬은 별의 시야를 가려 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  [1 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp1, round1_bose_attack);
-
-	if (star_hp1 > boss_hp) {
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
-		printf("  1ROUND를 CLEAR 하였습니다.");
-		cl_fa = 1;
-		coin = coin + 5;
-		printf("\n");
-		printf("                               __            \n"); Sleep(100);
-		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-		printf("  /___/                                      \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100);
-	}
-	else if (boss_hp > star_hp1) {
-		printf("  1ROUND를 FAIL 하였습니다.");
-		cl_fa = 0;
-		printf("\n");
-		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
-		printf("  /___/                                     \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100);
-	}
 	printf("  1round가 끝났습니다.");
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100);
 }
@@ -751,7 +758,7 @@ void round_1() {
 void round_2() {
 	star_hp2 = star_hp;
 	boss_hp = 15;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
-	boss_attack = 4;
+	boss_attack = 5;
 	boss_defense = 20;
 	cl_fa = 0;
 	printf("\n");
@@ -769,32 +776,11 @@ void round_2() {
 	printf("  2라운드 먹구름 보스의 공격 스킬은 바람입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  바람 스킬은 별의 움직임을 방해해 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  [2 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp2, round2_bose_attack);
-	
-	if (star_hp2 > boss_hp) {
-		printf("  2ROUND를 CLEAR 하였습니다.");
-		cl_fa = 1;
-		coin = coin + 5;
-		printf("\n");
-		printf("                               __            \n"); Sleep(100);
-		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-		printf("  /___/                                      \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
-	else if (boss_hp > star_hp2) {
-		printf("  2ROUND를 FAIL 하였습니다.");
-		cl_fa = 0;
-		printf("\n");
-		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
-		printf("  /___/                                     \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
 	printf("  2round가 끝났습니다.");
 	printf("\n");
 }
@@ -802,7 +788,7 @@ void round_2() {
 void round_3() {
 	star_hp3 = star_hp;
 	boss_hp = 20;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
-	boss_attack = 6;
+	boss_attack = 7;
 	boss_defense = 30;
 	cl_fa = 0;
 	printf("\n");
@@ -820,32 +806,11 @@ void round_3() {
 	printf("  3라운드 먹구름 보스의 공격 스킬은 비입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  비 스킬은 비를 내려 별을 젖게 만들어서 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  [3 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp3, round3_bose_attack);
-
-	if (star_hp3 > boss_hp) {
-		printf("  3ROUND를 CLEAR 하였습니다.");
-		cl_fa = 1;
-		coin = coin + 5;
-		printf("\n");
-		printf("                               __            \n"); Sleep(100);
-		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-		printf("  /___/                                      \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
-	else if (boss_hp > star_hp3) {
-		printf("  3ROUND를 FAIL 하였습니다.");
-		cl_fa = 0;
-		printf("\n");
-		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
-		printf("  /___/                                     \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
 	printf("  3round가 끝났습니다.");
 	printf("\n");
 }
@@ -853,7 +818,7 @@ void round_3() {
 void round_4() {
 	star_hp4 = star_hp;
 	boss_hp = 25;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
-	boss_attack = 8;
+	boss_attack = 10;
 	boss_defense = 40;
 	cl_fa = 0;
 	printf("\n");
@@ -871,32 +836,11 @@ void round_4() {
 	printf("  4라운드 먹구름 보스의 공격 스킬은 강풍, 폭우입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  강풍, 폭우 스킬은 강풍과 폭우가 동시에 발생해 태풍을 만들어 별에게 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  [4 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp4, round4_bose_attack);
-
-	if (star_hp4 > boss_hp) {
-		printf("  4ROUND를 CLEAR 하였습니다.");
-		cl_fa = 1;
-		coin = coin + 5;
-		printf("\n");
-		printf("                               __            \n"); Sleep(100);
-		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-		printf("  /___/                                      \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
-	else if (boss_hp > star_hp4) {
-		printf("  4ROUND를 FAIL 하였습니다.");
-		cl_fa = 0;
-		printf("\n");
-		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
-		printf("  /___/                                     \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
 	printf("  4round가 끝났습니다.");
 	printf("\n");
 }
@@ -904,7 +848,7 @@ void round_4() {
 void round_5() {
 	star_hp5 = star_hp;
 	boss_hp = 30;			// 튜토리얼 보스의 체력, 공격력, 방어력 설정
-	boss_attack = 10;
+	boss_attack = 12;
 	boss_defense = 50;
 	cl_fa = 0;
 	printf("\n");
@@ -922,37 +866,16 @@ void round_5() {
 	printf("  5라운드 먹구름 보스의 공격 스킬은 천둥, 번개 입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  천둥, 번개 스킬은 비를 내려 별을 젖게 만들어서 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  [5 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
 	round(star_hp5, round5_bose_attack);
-
-	if (star_hp5 > boss_hp) {
-		printf("  5ROUND를 CLEAR 하였습니다.");
-		cl_fa = 1;
-		coin = coin + 5;
-		printf("\n");
-		printf("                               __            \n"); Sleep(100);
-		printf("    ___ ____ ___ _  ___   ____/ /__ ___ _____\n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / __/ / -_) _ `/ __/\n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $__/_/$__/$_,_/_/   \n"); Sleep(100);
-		printf("  /___/                                      \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
-	else if (boss_hp > star_hp5) {
-		printf("  5ROUND를 FAIL 하였습니다.");
-		cl_fa = 0;
-		printf("\n");
-		printf("    ___ ____ ___ _  ___   ___ _  _____ ____ \n"); Sleep(100);
-		printf("   / _ `/ _ `/  ' $/ -_) / _ $ |/ / -_) __/ \n"); Sleep(100);
-		printf("   $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
-		printf("  /___/                                     \n"); Sleep(100);
-		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
-	}
 	printf("  5round가 끝났습니다.");
 	printf("\n");
 }
 
-int main() {
+int main(void) {
 	char yn;
 	srand((unsigned)time(NULL));
 	
@@ -1005,7 +928,7 @@ int main() {
 	printf("  상점을 통해서 별의 체력, 공격력, 방어력을 업그레이드 시킬 수 있습니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
-	printf("  게임을 시작하시겠습니까? ( y/n )........... ");
+	printf("  게임을 시작하시겠습니까? 게임 설명을 읽고 'y' 를 입력해주세요 ( y )........... ");
 	scanf_s(" %c", &yn);
 	
 	if (yn == 'y') {
@@ -1048,7 +971,6 @@ int main() {
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	round_2();
 	store();
-	
 	while (1) {
 		if (cl_fa == 1) break;
 		printf("  2ROUND를 다시 진행합니다.\n"); Sleep(100);
@@ -1061,20 +983,18 @@ int main() {
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	round_3();
 	store();
-
 	while (1) {
 		if (cl_fa == 1) break;
 		printf("  3ROUND를 다시 진행합니다.\n"); Sleep(100);
 		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-		round_4();
+		round_3();
 		store();
 	}
 	
 	printf("  4ROUND를 진행합니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
-	round_2();
+	round_4();
 	store();
-
 	while (1) {
 		if (cl_fa == 1) break;
 		printf("  4ROUND를 다시 진행합니다.\n"); Sleep(100);
@@ -1087,7 +1007,6 @@ int main() {
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 	round_5();
 	store();
-
 	while (1) {
 		if (cl_fa == 1) break;
 		printf("  5ROUND를 다시 진행합니다.\n"); Sleep(100);
@@ -1095,4 +1014,5 @@ int main() {
 		round_5();
 		store();
 	}
+	
 }
