@@ -26,8 +26,7 @@ int menu_num;					// 별의 메뉴 선택
 int boss_num;					// 보스의 메뉴 선택
 int cl_fa= 0;					// 라운드 clear fail 여부
 char yn;						// yes of no 선택 받는 변수
-char wish[50];					// 소원 받는 문자열
-int len, i;					
+
 
 
 void tutorial_main() { // 튜토리얼 메인 화면
@@ -393,9 +392,9 @@ void star_attack5() { // 5레벨 별 공격 화면
 	printf("  |          *     □       *               □      *     `                   @      +     `            +        |     \n"); Sleep(100);
 	printf("  |    +                            □      @                    □        `                                     |     \n"); Sleep(100);
 	printf("  |                 □    *                       *     ~               ~                         +      `       |     \n"); Sleep(100);
-	printf("  |        \033[1;33m■\033[0m              @      □         *              @                   +          `                    |     \n"); Sleep(100);
-	printf("  |      \033[1;33m■■■\033[0m  □                                            *                  +                `     +      |     \n"); Sleep(100);
-	printf("  |        \033[1;33m■\033[0m          *             `        @      `               +                      +                   |     \n"); Sleep(100);
+	printf("  |        \033[1;33m■\033[0m              @      □         *              @                    +          `                    |     \n"); Sleep(100);
+	printf("  |      \033[1;33m■■■\033[0m  □                                            *                   +                `     +      |     \n"); Sleep(100);
+	printf("  |        \033[1;33m■\033[0m          *             `        @      `               +                       +                   |     \n"); Sleep(100);
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 }
 
@@ -412,10 +411,6 @@ void ending() { // 엔딩화면
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  도움을 받아 달이 모습을 되찾았습니다. \n");
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  소원을 말해주세요! ......... ");
-
-	fgets(wish, 50, stdin);
-	len = strlen(wish);
 
 	printf("\n");
 	printf("  ................................................................................................................     \n"); Sleep(500);
@@ -453,17 +448,13 @@ void ending() { // 엔딩화면
 	printf("  ----------------------------------------------------------------------------------------------------------------     \n"); Sleep(100);
 
 	printf("  ................................................................................................................     \n"); Sleep(500);
-	printf("                                          ");
-	for (i = 0; i < len; i++) {
-		printf("%c", wish[i]);
-	}
 	printf("  ................................................................................................................     \n"); Sleep(500);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  소원달 구출 대작전을 플레이해주셔서 감사합니다.");
 }
 
 // 미니게임 관련 함수
-void x_y(int x, int y) {	// 미니게임 x 좌표와 y 좌표를 나타내는 함수
+void x_y(int x, int y) {	
 	COORD Pos;
 	Pos.X = 2 * x;
 	Pos.Y = y;
@@ -484,7 +475,7 @@ void mini_game_boss(int boss_y) {		// boss
 	printf("  ■■■■■■  \n");
 	printf("    ■■■■    \n");
 	printf("     ■■■     \n");
-	if (z) {								// z는 발이 움직이는 것을 표현
+	if (z) {								
 		printf("     ■    ■■    \n");
 		printf("     ■■          ");
 		z = false;
@@ -498,15 +489,15 @@ void mini_game_boss(int boss_y) {		// boss
 
 void mini_game_cactus(int cactus_x) {		// 선인장(장애물) 
 	x_y(cactus_x, mini_game_cactus_y);
-	printf("■■■");
+	printf(" # ## #");
 	x_y(cactus_x, mini_game_cactus_y + 1);
-	printf(" ■■ ");
+	printf(" # ## # ");
 	x_y(cactus_x, mini_game_cactus_y + 2);
-	printf(" ■■ ");
+	printf(" # #### ");
 	x_y(cactus_x, mini_game_cactus_y + 3);
-	printf(" ■■ ");
+	printf(" #### ");
 	x_y(cactus_x, mini_game_cactus_y + 4);
-	printf(" ■■ ");
+	printf("  ## ");
 }
 
 void mini_game_gameover(const int score) {	// 게임 오버 화면
@@ -521,24 +512,14 @@ void mini_game_gameover(const int score) {	// 게임 오버 화면
 	printf(" $_, /$_,_/_/_/_/$__/  $___/___/$__/_/    \n"); Sleep(100);
 	x_y(x, y + 3);
 	printf("/___/                                     \n"); Sleep(100);
-	/*
-	x_y(x, y);
-	printf("|-------------------------|");
-	x_y(x, y + 1);
-	printf("|     G A M E O V E R     |");
-	x_y(x, y + 2);
-	printf("|-------------------------|");
-	*/
 	x_y(x, y + 5);
-	printf("SCORE : %d     획득한 COIN : %d", score, score);
+	printf("   SCORE : %d     획득한 COIN : %d", score, score);
 	coin = coin + score;
 	printf("\n\n\n\n\n\n\n\n\n");
 	system("pause");
 }
 
 bool mini_game_over(const int cactus_x, const int boss_y) {	// 게임오버 조건
-	//x_y(0, 0);
-	//printf("treeX : %d, dinoY : %d", cactus_x, boss_y);
 	if (cactus_x <= 8 && cactus_x >= 4 && boss_y > 8) {
 		return true;
 	}
@@ -602,7 +583,7 @@ void mini_game_main() {
 
 		Sleep(20);
 		system("cls");
-		x_y(27, 0);   
+		x_y(42, 0);   
 		printf("Score : %d ", score);    //점수 출력해줌.
 	}
 	mini_game_gameover(score);
@@ -648,9 +629,6 @@ void mini_game() {
 		}
 	}
 }
-
-
-
 
 void store() { // 상점 화면
 	printf("\n");
@@ -874,10 +852,7 @@ void tutorial() {			// 튜토리얼
 	printf("  메뉴를 보고 공격을 할 수 있습니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  별과 boss는 서로 번갈아가면서 공격 또는 회복을 할 수 있습니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("  [튜토리얼 boss] 체력 : %d  공격력 : %d  방어력 : %d \n",boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
-	printf("  [      별     ] 체력 : 10  공격력 : 2  방어력 : 10 \n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  별의 기본 체력은 10 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  별의 기본 공격력은 2 입니다.\n"); Sleep(100); printf("\n"); Sleep(100);
-	printf("  별의 기본 방어력은 10 입니다.\n"); Sleep(100);
+	printf("  [      별     ] 체력 : 10  공격력 : 2  방어력 : 10 \n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(1000);
 
 	tutorial_main();
@@ -1025,6 +1000,8 @@ void round_2() {			// 2라운드
 	printf("\n"); Sleep(100);
 	printf("  바람 스킬은 별의 움직임을 방해해 타격을 줍니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
+	printf("  clear하면 달의 상태는 삭이 됩니다.\n"); Sleep(100); printf("\n"); Sleep(100);
+	printf("\n"); Sleep(100);
 	printf("  [2 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
@@ -1055,6 +1032,8 @@ void round_3() {			// 3라운드
 	printf("\n"); Sleep(100);
 	printf("  비 스킬은 비를 내려 별을 젖게 만들어서 타격을 줍니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
+	printf("  clear하면 달의 상태는 초승달이 됩니다.\n"); Sleep(100); printf("\n"); Sleep(100);
+	printf("\n"); Sleep(100);
 	printf("  [3 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 
@@ -1084,6 +1063,8 @@ void round_4() {			// 4라운드
 	printf("  4라운드 먹구름 보스의 공격 스킬은 강풍, 폭우입니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  강풍, 폭우 스킬은 강풍과 폭우가 동시에 발생해 태풍을 만들어 별에게 타격을 줍니다.\n"); Sleep(100);
+	printf("\n"); Sleep(100);
+	printf("  clear하면 달의 상태는 상현달이 됩니다.\n"); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100);
 	printf("  [4 ROUND BOSS] 체력 : %d  공격력 : %d  방어력 : %d \n", boss_hp, boss_attack, boss_defense); Sleep(100); printf("\n"); Sleep(100);
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
@@ -1188,7 +1169,27 @@ int main(void) {
 		printf("  /___/                                           (_) (_)   \n"); Sleep(100);
 		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
 	}
-	
+	else {
+		printf("\n"); Sleep(100);
+		printf("  게임 설명을 다시 합니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  --- 게임설명 ---\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  전투 난이도는 1단계부터 5단계까지 있으며 5단계까지 클리어하면 게임을 승리하게 됩니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  난이도마다 boss의 체력, 공격력, 방어력이 달라집니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  전투에서 승리시 코인을 얻을 수 있습니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+		printf("  --- 상점설명 ---\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  전투가 한번 끝날 때 마다 상점을 이용할 수 있습니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  전투의 승패 여부와는 관계없이 이용할 수 있습니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100);
+		printf("  상점을 통해서 별의 체력, 공격력, 방어력을 업그레이드 시킬 수 있습니다.\n"); Sleep(100);
+		printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(100); printf("\n"); Sleep(500);
+	}
 	printf("  게임의 이해를 돕는 튜토리얼이 준비되어 있습니다.\n"); Sleep(100);
 	printf("\n"); Sleep(100); 
 	printf("  튜토리얼 보상은 코인 5개 입니다. 튜토리얼을 진행하시겠습니까?  ( y/n )........... "); 
@@ -1200,6 +1201,9 @@ int main(void) {
 		printf("  튜토리얼을 진행합니다.\n"); Sleep(100);
 		printf("\n"); Sleep(100); printf("\n"); Sleep(100);
 		tutorial();
+	}
+	else {
+		printf("  튜토리얼을 스킵하였습니다.\n"); Sleep(100);
 	}
 
 	printf("\n"); Sleep(100); printf("\n"); Sleep(100);
