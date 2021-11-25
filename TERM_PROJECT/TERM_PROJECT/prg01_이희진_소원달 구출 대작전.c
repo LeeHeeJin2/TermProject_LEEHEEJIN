@@ -497,7 +497,7 @@ void mini_game_cactus(int cactus_x) {		// 선인장(장애물)
 	x_y(cactus_x, mini_game_cactus_y + 3);
 	printf(" #### ");
 	x_y(cactus_x, mini_game_cactus_y + 4);
-	printf("  ## ");
+	printf("   ## ");
 }
 
 void mini_game_gameover(const int score) {	// 게임 오버 화면
